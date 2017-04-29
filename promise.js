@@ -1,16 +1,19 @@
 window.onload = function(){
-  $.get('data/simple_message.json')
-  .then(function(message){
-    console.log("retrieved simple message", message);
-    return $.get('data/complex_message.json');
-    .then(function(hardMessage){
-      console.log("complex message:", hardMessage);
-    })
-    .error(function(error){
-      console.log("error message:", error);
-    })
-  });
-/*
+//JQUERY has promises inherently. Can be done like so:
+  // $.get('data/simple_message.json')
+  // .then(function(message){
+  //   console.log("retrieved simple message", message);
+  //   return $.get('data/complex_message.json');
+  //   .then(function(hardMessage){
+  //     console.log("complex message:", hardMessage);
+  //   })
+  //   .error(function(error){
+  //     console.log("error message:", error);
+  //   })
+  // });
+
+// Vanilla JS way to do promises. Defined this AJAX request
+// via function named get
   function get(url){
     return new Promise(function(resolve, reject){
       xhttp = XMLHttpRequest();
@@ -40,5 +43,5 @@ window.onload = function(){
   }).catch(function(error){
     console.log("error message:",error );
   })
-*/
+
 }
